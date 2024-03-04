@@ -1,10 +1,9 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    
-  }
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
   
   .container {
     flex: 1;
@@ -16,6 +15,9 @@ body {
     background-color: white;
   }
   
+  .navbar-collapse{
+    background-color: white !important;
+  }
   .fa-compass {
     color: #fe424d;
     font-size: 2rem;
