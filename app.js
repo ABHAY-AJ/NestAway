@@ -71,9 +71,10 @@ const sessionOptions = {
     },
 };
 
-// app.get("/",(req,res)=>{
-//     res.send("successful root");
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "homepage.html"));
+});
+
 
 
 app.use(session(sessionOptions));
