@@ -242,9 +242,11 @@
       <div class="card-img-overlay"></div>
       <div class="card-body">
         <p class="card-text">
-          <b><%= listing.title %></b><br />
-          &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
-          <i class="tax-info"> &nbsp;+18% GST</i>
+          <b><%= listing.title %> </b><br />
+          <span class="price-info" data-base-price="<%= listing.price %>">
+            &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+          </span>
+          <!-- <i class="tax-info"> &nbsp; &nbsp;+18% GST</i> -->
         </p>
       </div>
     </div>
@@ -260,12 +262,30 @@
   document.querySelector(".right-arrow").addEventListener("click", () => {
     document.querySelector(".filter-container").scrollBy({ left: 150, behavior: "smooth" });
   });
-
   let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-  taxSwitch.addEventListener("click", () => {
-    let taxInfo = document.getElementsByClassName("tax-info");
-    for (let info of taxInfo) {
-      info.style.display = info.style.display === "inline" ? "none" : "inline";
+
+taxSwitch.addEventListener("change", () => {
+  updatePriceDisplay(taxSwitch.checked);
+});
+  function updatePriceDisplay(isTaxSwitchOn) {
+  let priceInfoElements = document.querySelectorAll(".price-info");
+
+  priceInfoElements.forEach((priceInfo) => {
+    const basePrice = parseFloat(priceInfo.dataset.basePrice);
+    const totalPrice = isTaxSwitchOn ? calculateTotalPrice(basePrice) : basePrice;
+
+    priceInfo.innerHTML = `&#8377; ${totalPrice.toLocaleString("en-IN")} /night`;
+
+    if (isTaxSwitchOn) {
+      priceInfo.innerHTML += ` <i class="tax"> &nbsp;with 18% GST</i>`;
     }
   });
+}
+// Function to calculate total price with GST
+function calculateTotalPrice(basePrice) {
+  const gstPercentage = 18;
+  const gstAmount = (basePrice * gstPercentage) / 100;
+  const totalPrice = basePrice + gstAmount;
+  return totalPrice.toLocaleString("en-IN");
+}
 </script>
