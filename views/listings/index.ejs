@@ -5,124 +5,236 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 1.5rem;
+    
     
   }
+
   .filter {
     text-align: center;
-    
     margin-right: 1.5rem;
     margin-top: 2rem;
     opacity: 0.7;
+    transition: opacity 0.3s;
   }
+
   .filter:hover {
     opacity: 1;
     cursor: pointer;
   }
+
   .filter p {
     font-size: 0.8rem;
+    margin: 0.5rem 0 0;
   }
+
   .tax-info {
     display: none;
   }
+
   .tax-toggle {
     border: 1px solid black;
     border-radius: 1rem;
     height: 3rem;
-    padding: 1rem;
+    padding: 0 1rem;
     margin-left: 2rem;
     display: flex;
     align-items: center;
   }
+
+  .scrollable-tabs-container {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    margin-right: 1rem;
+  }
+
+  .scrollable-tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .left-arrow:hover,
+  .right-arrow:hover {
+    opacity: 0.8;
+  }
+
+  .left-arrow svg,
+  .right-arrow svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    
+    border-radius: 25rem;
+    border-width: 0.5px;
+    background-color: rgba(196, 193, 193, 0.219);
+  }
+
+  .filter-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .listing-link {
+    text-decoration: none;
+  }
+
+  .listing-card {
+    transition: transform 0.2s;
+  }
+
+  .listing-card:hover {
+    transform: scale(1.02);
+  }
+
+  /* Responsive adjustments */
+
+
+@media (min-width: 1350px) {
+  #filters {
+    flex-wrap: nowrap;
+  }
+
+  .tax-toggle {
+    margin-left: auto;
+  }
+}
 </style>
 
 <div id="filters">
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-fire"></i>
+  <div class="scrollable-tabs-container">
+    <div class="left-arrow">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5 8.25 12l7.5-7.5"
+        />
+      </svg>
     </div>
-    <p>Trending</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-bed"></i>
+    <div class="filter-container">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-fire"></i>
+        </div>
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-bed"></i>
+        </div>
+        <p>Rooms</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-mountain-city"></i>
+        </div>
+        <p>Cities</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-mountain"></i>
+        </div>
+        <p>Mountains</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-brands fa-fort-awesome"></i>
+        </div>
+        <p>Castles</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-person-swimming"></i>
+        </div>
+        <p>Pools</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-campground"></i>
+        </div>
+        <p>Camping</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-cow"></i>
+        </div>
+        <p>Farms</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-regular fa-snowflake"></i>
+        </div>
+        <p>Arctic</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-igloo"></i>
+        </div>
+        <p>Domes</p>
+      </div>
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-sailboat"></i>
+        </div>
+        <p>Boats</p>
+      </div>
     </div>
-    <p>Rooms</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-mountain-city"></i>
+    <div class="right-arrow active">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
     </div>
-    <p>Iconic cities</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-mountain"></i>
-    </div>
-    <p>Mountains</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-brands fa-fort-awesome"></i>
-    </div>
-    <p>Castles</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-person-swimming"></i>
-    </div>
-    <p>Pools</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-campground"></i>
-    </div>
-    <p>Camping</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-cow"></i>
-    </div>
-    <p>Farms</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-regular fa-snowflake"></i>
-    </div>
-    <p>Arctic</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-igloo"></i>
-    </div>
-    <p>Domes</p>
-  </div>
-  <div class="filter">
-    <div>
-      <i class="fa-solid fa-sailboat"></i>
-    </div>
-    <p>Boats</p>
   </div>
   <div class="tax-toggle">
-    <div class="form-check-reverse form-switch">
+    <div class="form-check-reverse form-switch ">
       <input
         class="form-check-input"
         type="checkbox"
         role="switch"
         id="flexSwitchCheckDefault"
       />
-      <label class="form-check-label" for="flexSwitchCheckDefault"
+      <label class="form-check-label text-center" for="flexSwitchCheckDefault"
         >Display prices post taxes</label
       >
     </div>
   </div>
 </div>
+
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
   <% for(let listing of allListings) { %>
-  <a href="/listings/<%= listing._id%>" class="listing-link">
+  <a href="/listings/<%= listing._id %>" class="listing-link">
     <div class="card col listing-card">
       <img
-        src="<%=listing.image.url%>"
+        src="<%= listing.image.url %>"
         class="card-img-top"
         alt="listing_image"
         style="height: 20rem"
@@ -141,15 +253,19 @@
 </div>
 
 <script>
+  document.querySelector(".left-arrow").addEventListener("click", () => {
+    document.querySelector(".filter-container").scrollBy({ left: -150, behavior: "smooth" });
+  });
+
+  document.querySelector(".right-arrow").addEventListener("click", () => {
+    document.querySelector(".filter-container").scrollBy({ left: 150, behavior: "smooth" });
+  });
+
   let taxSwitch = document.getElementById("flexSwitchCheckDefault");
   taxSwitch.addEventListener("click", () => {
     let taxInfo = document.getElementsByClassName("tax-info");
-    for (info of taxInfo) {
-      if (info.style.display != "inline") {
-        info.style.display = "inline";
-      } else {
-        info.style.display = "none";
-      }
+    for (let info of taxInfo) {
+      info.style.display = info.style.display === "inline" ? "none" : "inline";
     }
   });
 </script>
