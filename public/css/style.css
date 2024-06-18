@@ -106,11 +106,6 @@ body {
   
   /* Show Page */
 
-.container {
-  flex: 1;
-  min-height: 80vh;
-}
-
 .listing-card {
   border: none;
   margin-bottom: 2rem;
@@ -319,14 +314,10 @@ body {
     height: 100%;
     width: 100%;
   }
-  #map {
+   #map {
     height: 366px !important;
     width: auto !important;
     margin: 10px;
-  }
-  .review-sec {
-    margin-right: 5px;
-    margin-left: 5px;
   }
 }
 
@@ -400,5 +391,6 @@ body {
     margin-left: 35px;
   }
 }
+
 
   
